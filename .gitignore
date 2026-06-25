@@ -1,0 +1,65 @@
+# ============================================================
+# Python (data/, ia/)
+# ============================================================
+__pycache__/
+*.py[cod]
+*.pyc
+*.egg-info/
+.eggs/
+.venv/
+venv/
+env/
+ENV/
+.python-version
+
+# Notebooks Jupyter
+.ipynb_checkpoints/
+
+# Cache pytest / mypy
+.pytest_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# ============================================================
+# Node.js (semantic-release)
+# ============================================================
+node_modules/
+npm-debug.log*
+
+# ============================================================
+# Environnements / secrets — NE JAMAIS COMMITTER
+# ============================================================
+.env
+.env.*
+*.key
+*credentials*
+
+# ============================================================
+# Données — fichiers volumineux ou sensibles à ne pas versionner
+# (les scripts d'extraction restent versionnés, pas leur sortie)
+# ============================================================
+data/raw/
+data/processed/
+*.csv
+*.parquet
+
+# ============================================================
+# MLflow / modèles entraînés
+# ============================================================
+mlruns/
+*.pkl
+*.joblib
+
+# ============================================================
+# Docker
+# ============================================================
+*.log
+
+# ============================================================
+# OS / éditeurs
+# ============================================================
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

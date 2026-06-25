@@ -1,0 +1,111 @@
+<svg width="700" height="920" viewBox="0 0 700 920" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif">
+<title>Architecture technique finale du projet PrediBike</title>
+<desc>Trois blocs alignés sur l'arborescence du repo : data/ pour la collecte et l'API Data, ia/ pour le modèle et l'API IA avec MLOps, app/ pour l'application Streamlit consommée par l'utilisateur final, avec CI/CD et monitoring transverses.</desc>
+<defs>
+<marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+<path d="M2 1L8 5L2 9" fill="none" stroke="#333" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</marker>
+</defs>
+
+<rect width="700" height="920" fill="#ffffff"/>
+
+<!-- BLOC data/ -->
+<rect x="30" y="30" width="640" height="240" rx="20" fill="none" stroke="#d97706" stroke-width="1.5"/>
+<text x="50" y="58" font-size="16" font-weight="bold" fill="#d97706">data/  —  Bloc 1 (C1 à C5)</text>
+<text x="50" y="76" font-size="12" fill="#92400e">Collecte, stockage, exposition</text>
+
+<rect x="50" y="92" width="140" height="50" rx="10" fill="#fef3e2" stroke="#d97706" stroke-width="1"/>
+<text x="120" y="112" font-size="12" font-weight="bold" text-anchor="middle" fill="#333">CSV BAAC</text>
+<text x="120" y="130" font-size="10" text-anchor="middle" fill="#555">extract_baac.py</text>
+
+<rect x="200" y="92" width="140" height="50" rx="10" fill="#fef3e2" stroke="#d97706" stroke-width="1"/>
+<text x="270" y="112" font-size="12" font-weight="bold" text-anchor="middle" fill="#333">API météo</text>
+<text x="270" y="130" font-size="10" text-anchor="middle" fill="#555">extract_meteo_api.py</text>
+
+<rect x="350" y="92" width="140" height="50" rx="10" fill="#fef3e2" stroke="#d97706" stroke-width="1"/>
+<text x="420" y="112" font-size="12" font-weight="bold" text-anchor="middle" fill="#333">Scraping</text>
+<text x="420" y="130" font-size="10" text-anchor="middle" fill="#555">scrape_amenagements.py</text>
+
+<rect x="500" y="92" width="150" height="50" rx="10" fill="#fef3e2" stroke="#d97706" stroke-width="1"/>
+<text x="575" y="112" font-size="12" font-weight="bold" text-anchor="middle" fill="#333">SQL INSEE</text>
+<text x="575" y="130" font-size="10" text-anchor="middle" fill="#555">load_insee.py</text>
+
+<path d="M120 142 L120 160 L420 160" fill="none" stroke="#666" stroke-width="1"/>
+<line x1="270" y1="142" x2="270" y2="160" stroke="#666" stroke-width="1" marker-end="url(#arrow)"/>
+<line x1="420" y1="142" x2="420" y2="160" stroke="#666" stroke-width="1" marker-end="url(#arrow)"/>
+<path d="M575 142 L575 160 L460 160" fill="none" stroke="#666" stroke-width="1" marker-end="url(#arrow)"/>
+
+<rect x="210" y="166" width="280" height="34" rx="8" fill="#fde8c8" stroke="#d97706" stroke-width="1"/>
+<text x="350" y="187" font-size="12" text-anchor="middle" fill="#333">data/etl/ — pandas, ETL Python</text>
+<line x1="350" y1="200" x2="350" y2="216" stroke="#666" stroke-width="1" marker-end="url(#arrow)"/>
+
+<rect x="180" y="218" width="340" height="38" rx="10" fill="#fde8c8" stroke="#d97706" stroke-width="1.5"/>
+<text x="350" y="241" font-size="12" font-weight="bold" text-anchor="middle" fill="#333">data/database/ — PostgreSQL + PostGIS</text>
+
+<line x1="350" y1="256" x2="350" y2="296" stroke="#666" stroke-width="1" marker-end="url(#arrow)"/>
+<text x="365" y="280" font-size="11" fill="#555">API REST Data (FastAPI)</text>
+
+<!-- BLOC ia/ -->
+<rect x="30" y="300" width="640" height="280" rx="20" fill="none" stroke="#16a34a" stroke-width="1.5"/>
+<text x="50" y="328" font-size="16" font-weight="bold" fill="#16a34a">ia/  —  Bloc 2 (C6 à C13)</text>
+<text x="50" y="346" font-size="12" fill="#166534">Veille, POC, API IA, MLOps</text>
+
+<rect x="50" y="362" width="300" height="38" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="1"/>
+<text x="200" y="385" font-size="12" font-weight="bold" text-anchor="middle" fill="#333">docs/veille_benchmark.md</text>
+
+<rect x="370" y="362" width="290" height="38" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="1"/>
+<text x="515" y="385" font-size="11" text-anchor="middle" fill="#333">Azure AI, Groq, HuggingFace, Ollama</text>
+<line x1="350" y1="381" x2="368" y2="381" stroke="#666" stroke-width="1" marker-end="url(#arrow)"/>
+
+<line x1="200" y1="400" x2="200" y2="418" stroke="#666" stroke-width="1" marker-end="url(#arrow)"/>
+<rect x="50" y="424" width="300" height="40" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+<text x="200" y="448" font-size="12" font-weight="bold" text-anchor="middle" fill="#333">ia/poc/ — scikit-learn (C8)</text>
+
+<line x1="200" y1="464" x2="200" y2="482" stroke="#666" stroke-width="1" marker-end="url(#arrow)"/>
+<rect x="50" y="488" width="300" height="40" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+<text x="200" y="512" font-size="12" font-weight="bold" text-anchor="middle" fill="#333">ia/api/ — FastAPI (C9)</text>
+
+<line x1="350" y1="508" x2="368" y2="508" stroke="#666" stroke-width="1" marker-end="url(#arrow)"/>
+<rect x="370" y="488" width="290" height="40" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+<text x="515" y="512" font-size="12" font-weight="bold" text-anchor="middle" fill="#333">App prototype Streamlit (C10)</text>
+
+<line x1="200" y1="528" x2="200" y2="546" stroke="#666" stroke-width="1" marker-end="url(#arrow)"/>
+<rect x="50" y="552" width="300" height="24" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="1"/>
+<text x="200" y="568" font-size="11" text-anchor="middle" fill="#333">ia/tests/ + MLflow (C11-C12)</text>
+
+<line x1="515" y1="528" x2="515" y2="546" stroke="#666" stroke-width="1" marker-end="url(#arrow)"/>
+<rect x="370" y="552" width="290" height="24" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="1"/>
+<text x="515" y="568" font-size="11" text-anchor="middle" fill="#333">.github/workflows/ci-ia.yml (C13)</text>
+
+<line x1="350" y1="576" x2="350" y2="608" stroke="#666" stroke-width="1" marker-end="url(#arrow)"/>
+<text x="365" y="600" font-size="11" fill="#555">Appel API IA</text>
+
+<!-- BLOC app/ -->
+<rect x="30" y="610" width="640" height="200" rx="20" fill="none" stroke="#db2777" stroke-width="1.5"/>
+<text x="50" y="638" font-size="16" font-weight="bold" fill="#db2777">app/  —  Bloc 3 (C14 à C21)</text>
+<text x="50" y="656" font-size="12" fill="#9d174d">Application finale, CI/CD, monitoring</text>
+
+<rect x="50" y="672" width="180" height="44" rx="10" fill="#fce7f3" stroke="#db2777" stroke-width="1"/>
+<text x="140" y="692" font-size="12" font-weight="bold" text-anchor="middle" fill="#333">Specs · Agile</text>
+<text x="140" y="708" font-size="10" text-anchor="middle" fill="#555">(C14-C16)</text>
+<line x1="230" y1="694" x2="248" y2="694" stroke="#666" stroke-width="1" marker-end="url(#arrow)"/>
+
+<rect x="250" y="672" width="180" height="44" rx="10" fill="#fce7f3" stroke="#db2777" stroke-width="1.5"/>
+<text x="340" y="692" font-size="12" font-weight="bold" text-anchor="middle" fill="#333">app/frontend/</text>
+<text x="340" y="708" font-size="10" text-anchor="middle" fill="#555">Streamlit (C17)</text>
+<line x1="430" y1="694" x2="448" y2="694" stroke="#666" stroke-width="1" marker-end="url(#arrow)"/>
+
+<rect x="450" y="672" width="200" height="44" rx="10" fill="#fce7f3" stroke="#db2777" stroke-width="1"/>
+<text x="550" y="692" font-size="12" font-weight="bold" text-anchor="middle" fill="#333">.github/workflows/</text>
+<text x="550" y="708" font-size="10" text-anchor="middle" fill="#555">ci-app.yml (C18-C19)</text>
+
+<line x1="340" y1="716" x2="340" y2="736" stroke="#666" stroke-width="1" marker-end="url(#arrow)"/>
+<rect x="180" y="742" width="320" height="44" rx="10" fill="#fce7f3" stroke="#db2777" stroke-width="1.5"/>
+<text x="340" y="762" font-size="12" font-weight="bold" text-anchor="middle" fill="#333">Prometheus + Grafana</text>
+<text x="340" y="778" font-size="10" text-anchor="middle" fill="#555">Monitoring + incidents (C20-C21)</text>
+
+<!-- transverse -->
+<rect x="70" y="832" width="540" height="36" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1"/>
+<text x="340" y="854" font-size="11" text-anchor="middle" fill="#374151">Transverse : Git, Docker, RGPD, éco-conception, accessibilité WCAG</text>
+
+</svg>
