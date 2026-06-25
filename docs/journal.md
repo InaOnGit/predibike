@@ -97,6 +97,15 @@ Voir [`mcd.md`](mcd.md), [`mld.md`](mld.md), [`mpd.md`](mpd.md) pour le
 détail complet, et [`../data/database/mpd_predibike.sql`](../data/database/mpd_predibike.sql)
 pour le script exécutable.
 
+### Mise à jour Node.js dans le pipeline de release
+
+Le premier run de `release.yml` a fonctionné (statut vert), mais a levé un warning :
+Node.js 20 est déprécié sur les runners GitHub Actions, qui basculent
+automatiquement vers Node.js 24 pour les actions `checkout@v4` et
+`setup-node@v4`. Mise à jour de `node-version: 20` → `node-version: 24`
+dans `release.yml` pour rester aligné avec les runners actuels et éviter
+une rupture future quand le support de Node 20 sera complètement retiré.
+
 ### Livrables produits cette semaine
 
 - [x] Architecture technique (`docs/architecture.md` + schéma)
